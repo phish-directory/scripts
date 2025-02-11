@@ -29,9 +29,9 @@ def read_domain_list(filename: str) -> List[str]:
 def get_db_connection():
     """Create a database connection"""
     return psycopg2.connect(
-        dbname="api_dark_brook_8284",
-        user="api_dark_brook_8284",
-        password="DB PASSWORD",
+        dbname="phish_directory",
+        user="phish_directory",
+        password="DATABASE PASSWORD",
         host="localhost",
         port="25432"
     )
