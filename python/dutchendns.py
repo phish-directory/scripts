@@ -1,3 +1,6 @@
+# script from @cactusduper on discord (FF server as *certified SSL homie*)
+# used in FF to check if domains resolve / "are active" based on dns
+
 import asyncio
  
 class Qu:
