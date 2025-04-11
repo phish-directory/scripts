@@ -9,11 +9,17 @@
 
 : "${SINCE:?The SINCE env variable is required (now, 3 months ago, yyyy-mm-dd)}"
 : "${UNTIL:=now}"
-: "${REPO}"
+: "${REPO:?The REPO env variable is required (format: owner/repo)}"
 
 # compute yyyy-mm-dd formats
 SINCE_TS=$(date -u -d "$SINCE" +"%Y-%m-%d")
 UNTIL_TS=$(date -u -d "$UNTIL" +"%Y-%m-%d")
+
+# validate repo format
+if [[ ! "$REPO" =~ ^[^/]+/[^/]+$ ]]; then
+  echo "Error: REPO must be in the format 'owner/repo'"
+  exit 1
+fi
 
 # https://cli.github.com/manual/gh_help_environment
 export GH_FORCE_TTY=160
